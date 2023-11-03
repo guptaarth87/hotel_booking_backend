@@ -1,0 +1,28 @@
+{
+  "name": "hotel_booking_backend",
+  "version": "1.0.0",
+  "description": "Backend of hotel booking",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guptaarth87/hotel_booking_backend.git"
+  },
+  "author": "Arth Gupta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/guptaarth87/hotel_booking_backend/issues"
+  },
+  "homepage": "https://github.com/guptaarth87/hotel_booking_backend#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongodb": "^6.2.0",
+    "mongoose": "^8.0.0",
+    "nodemon": "^3.0.1"
+  }
+}
