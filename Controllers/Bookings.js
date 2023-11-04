@@ -9,7 +9,7 @@ exports.addBooking=(req,res) =>{
         check_out_date,
         no_of_rooms,
         type_of_room,
-        
+        amount
        
     } = req.body;
     const Room_price = {
@@ -28,7 +28,7 @@ exports.addBooking=(req,res) =>{
         check_out_date : check_out_date,
         no_of_rooms : no_of_rooms,
         type_of_room : type_of_room,
-        amount : Room_price[type_of_room],
+        amount : amount,
         payment_status : "unpaid"
     });
     bookingObj.save().then(result => {
@@ -151,20 +151,6 @@ exports.checkAvailability =(req , res)=>{
             });
         }
     })
-       
-        
-        // const booked_rooms = result.length;
-        // if (booked_rooms + no_of_rooms <= Available_rooms.TypeOfRoom ){
-        //       res.status(200).json({
-        //         message: "Available",
-        //         available: true
-        //     });
-        // }else{
-        //     res.status(200).json({
-        //         message: "Unavailable",
-        //         available: false
-        //     });
-        // }
-    // });
+    
 
 }
