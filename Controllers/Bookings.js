@@ -85,7 +85,7 @@ exports.paymentFetch = (req , res) =>{
         payment_status: "unpaid"
     }
 
-    Booking.findOne(query).then(result=>{
+    Booking.find(query).sort({ booking_date: -1 }).then(result=>{
     
         res.status(200).json({
             message: "Amount fetched to be paid !",
