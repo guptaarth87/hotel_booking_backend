@@ -9,6 +9,7 @@ exports.addBooking=(req,res) =>{
         check_out_date,
         no_of_rooms,
         type_of_room,
+        booking_date,
         amount
        
     } = req.body;
@@ -28,6 +29,7 @@ exports.addBooking=(req,res) =>{
         check_out_date : check_out_date,
         no_of_rooms : no_of_rooms,
         type_of_room : type_of_room,
+        booking_date: booking_date,
         amount : amount,
         payment_status : "unpaid"
     });

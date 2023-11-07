@@ -27,6 +27,10 @@ const BookingSchema = new Schema({
         type: String,
         required: true
     },
+    booking_date:{
+        type: String,
+        required: true
+    },
     amount: {
         type:  Number,
         required: true
