@@ -47,7 +47,7 @@ exports.addBooking=(req,res) =>{
 
 }
 exports.getBookings = (req , res) =>{
-    Booking.find().then(result=>{
+    Booking.find().sort({ booking_date: -1 }).then(result=>{
     
         res.status(200).json({
             message: "Data  fetched!",

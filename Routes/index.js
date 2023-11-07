@@ -17,7 +17,7 @@ router.get('/',userController.test);
 router.get('/getbookings', bookingController.getBookings);
 router.post('/addbooking',bookingController.addBooking );
 router.post('/checkavailaiblity', bookingController.checkAvailability);
-router.post('/pay/:phone_no',bookingController.paymentFetch);
+router.get('/pay/:phone_no',bookingController.paymentFetch);
 router.post('/updatestatus/:id', bookingController.updatePaymentStatus);
 
 // router.post('/newCustomer',customerController.newCustomer)
