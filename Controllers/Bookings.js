@@ -47,12 +47,37 @@ exports.addBooking=(req,res) =>{
 
 }
 exports.getBookings = (req , res) =>{
+
     Booking.find().sort({ booking_date: -1 }).then(result=>{
     
         res.status(200).json({
             message: "Data  fetched!",
             
             data:result
+        });
+    }).catch(error => {
+        res.status(500).json({
+            message: "Error in Database",
+            error: error
+        });
+    })
+}
+
+exports.getBookingsByPage = (req , res) =>{
+    const page = req.params.page;
+    Booking.find().sort({ booking_date: -1 }).then(result=>{
+    
+        function getBatchElements(array, batchSize, k) {
+            const start = (k - 1) * batchSize;
+            const end = start + batchSize;
+            return array.slice(start, end);
+          }
+
+        const batchSize = 10;
+        const Elements = getBatchElements(result, batchSize, page);
+        res.status(200).json({
+            message: "Data  fetched!",
+            data:Elements
         });
     }).catch(error => {
         res.status(500).json({
