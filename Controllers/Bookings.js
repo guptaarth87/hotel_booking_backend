@@ -48,6 +48,30 @@ exports.addBooking=(req,res) =>{
 }
 
 
+exports.deleteBooking = (req, res) => {
+    const bookingId = req.params.id;
+  
+    Booking.findByIdAndRemove(bookingId)
+      .then((deletedBooking) => {
+        if (!deletedBooking) {
+          return res.status(404).json({
+            message: 'Booking not found with the given id.',
+          });
+        }
+  
+        res.status(200).json({
+          message: 'Booking deleted successfully.',
+          deletedBooking: deletedBooking,
+        });
+      })
+      .catch((error) => {
+        res.status(500).json({
+          message: 'Error deleting booking from the database.',
+          error: error,
+        });
+      });
+  };
+  
 exports.getBookings = (req , res) =>{
 
     Booking.find().sort({ booking_date: -1 }).then(result=>{
